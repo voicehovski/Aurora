@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="component" version="2.5.0" method="upgrade">
+
+	<name>Aurora Search</name>
+	<!-- 
+		Компонет поиска/фильтрации продукции
+		Страница будет содержать параметры фильтрации и результаты
+		Поиск будет проводиться с учётом опечаток, транслитерации и популярных запросов. Варианты будут подбрасываться
+			в фоновом режиме
+		Можно сделать фоновую подгрузку результатов поиска. Можно например так: подгрузка начинается если результатов не более N,
+			иначе можно выводить что-то вроде "Гр.." 1024 результата Показать
+		Модуль поиска будет содержать ограниченный набор параметров и вести на страницу компонента
+		Параметры компонента: (в админпанели) "глубина интеллектуальности" по транслиту, опечаткам, вариантам, порог, интервал
+		
+		Таблицы
+		Запросы: текст, (другие параметры запроса, тогда общую популярность можно считать), популярность (было бы неплохо частоту по периодам), 
+		Опечатки: текст, варианты, популярность
+		
+		Руководства
+		https://docs.joomla.org/J2.5:Developing_a_MVC_Component/Adding_backend_actions
+		https://docs.joomla.org/J3.x:Developing_an_MVC_Component/Adding_backend_actions
+		
+		1. Делаем просто поиск с параметрами
+		2. Прикручиваем статистику
+		3. Автоподсказки
+		4. Опечатки и транслит
+	-->
+	<creationDate>September 2016</creationDate>
+	<author>Eugene D</author>
+	<authorEmail>help.kiev@gmail.com</authorEmail>
+	<authorUrl></authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
+	<!--
+		С обновлением версии mнужно обновлять имя файла в \admin\sql\updates\mysql\
+		номер версии будет записан в таблицу #__shemas
+	-->
+	<version>1.0.0</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>COM_AURORA_SEARCH_INSTALLATION_DESC</description>
+
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> <!-- Runs on update; New in 2.5 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<!--
+		Аттрибут folder говорит ИЗ какой папки в пакете установки
+		joomla должна брать файлы для пользовательской/административной части сайта
+	-->
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>aurorasearch.php</filename>
+		<filename>controller.php</filename>
+		<folder>views</folder>
+		<folder>models</folder>
+		<folder>language</folder>
+	</files>
+
+	<administration>
+
+		<menu>Aurora search</menu>
+
+		<files folder="admin">
+			<!-- Admin Main File Copy Section -->
+			<filename>index.html</filename>
+			<filename>aurorasearch.php</filename>
+			<filename>controller.php</filename>
+			<!-- SQL files section -->
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>models</folder>
+			<folder>language</folder>
+			<folder>views</folder>
+		</files>
+	</administration>
+
+</extension>
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		FOR WHAT?
+	For possibility of using our component as a menu item
+		
+	The text constants form payout-tag sould be placed in corresponding .ini file
+	The ones from field-tags - in corresponding .sys.ini
+
+	This will be shown in adminpanel when choosing component as menu item
+-->
+
+<metadata>
+	<layout title="COM_MPZ_SEARCH_VIEW_SEARCH_A_TITLE">
+		<message>
+			<![CDATA[COM_MPZ_SEARCH_VIEW_SEARCH_A_DESC]]>
+		</message>
+	</layout>
+	<fields name="request">
+		<fieldset
+			name="request"
+			addfieldpath="/administrator/components/com_mpzsearch/models/fields"
+		>
+
+	<!--
+			HOW TO USE?
+		Choosing one, append &$name=$value into the menu link, and could be covered under a nice HRU
+		$type can be used in /admin/models/fields/VIEW_NAME.php for getting parameter values from a database
+	-->
+			<field
+				name="id-db"	
+				type="MpzSearch"
+				label="COM_MPZ_SEARCH_FIELD_FILETYPE_LABEL"
+				description="COM_MPZ_SEARCH_FIELD_FILETYPE_DESC"
+				default="1"
+			/>
+			
+			<field
+				name="id"	
+				type="list"
+				label="COM_MPZ_SEARCH_FIELDID_FILETYPE_LABEL"
+				description="COM_MPZ_SEARCH_FIELDID_FILETYPE_DESC"
+				default="1"
+			>
+				<option value="1">Simple search</option>
+				<option value="2">Smart search</option>
+				<option value="3">Wildcard search</option>
+
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

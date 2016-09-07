@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_AURORA_SEARCH_MENU_VIEW_TITLE">
+		<message>
+			<![CDATA[COM_AURORA_SEARCH_MENU_VIEW_DESC]]>
+		</message>
+	</layout>
+
+	<fields name="xml_params">
+		<fieldset name="xml_params">
+			<field
+				name="xml_param"
+				type="list"
+				label="COM_AURORA_SEARCH_VIEW_FIELD_XML_PARAM_LABEL"
+				description="COM_AURORA_SEARCH_VIEW_FIELD_XML_PARAM_DESC"
+				default="1"
+			>
+				<option value="1">xml-1</option>
+				<option value="2">xml-2</option>
+			</field>
+		</fieldset>
+	</fields>
+	
+	<fields name="db_params">
+		<fieldset
+			name="db_params"
+			addfieldpath="/administrator/components/com_aurorasearch/models/fields"
+		>
+			<field
+				name="db_param"
+				type="db_param-bind"
+				label="COM_AURORA_SEARCH_VIEW_FIELD_DB_PARAM_LABEL"
+				description="COM_AURORA_SEARCH_VIEW_FIELD_XML_PARAM_DESC"
+				default="1"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

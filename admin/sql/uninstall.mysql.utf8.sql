@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__aurora_search_options`;DROP TABLE IF EXISTS `#__aurora_search_queries`; 
