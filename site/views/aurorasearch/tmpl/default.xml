@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="COM_AURORA_SEARCH_MENU_VIEW_TITLE">
+	<layout title="COM_AURORA_SEARCH_MENU_NAME">
 		<message>
-			<![CDATA[COM_AURORA_SEARCH_MENU_VIEW_DESC]]>
+			<![CDATA[COM_AURORA_SEARCH_MENU_DESC]]>
 		</message>
 	</layout>
 
-	<fields name="xml_params">
-		<fieldset name="xml_params">
+	<!-- name="request" не просто условное обозначение, а указание системе на то что параметр нужно
+			присоединять к запросу. Скудная информация по следующим ссылкам:
+			https://docs.joomla.org/Form_field, https://docs.joomla.org/Creating_a_modal_form_field
+	-->
+	<fields name="request">
+		<fieldset name="request">
 			<field
 				name="xml_param"
 				type="list"
@@ -21,16 +25,16 @@
 		</fieldset>
 	</fields>
 	
-	<fields name="db_params">
+	<fields name="request">
 		<fieldset
-			name="db_params"
+			name="request"
 			addfieldpath="/administrator/components/com_aurorasearch/models/fields"
 		>
 			<field
 				name="db_param"
-				type="db_param-bind"
+				type="dbparambinder"
 				label="COM_AURORA_SEARCH_VIEW_FIELD_DB_PARAM_LABEL"
-				description="COM_AURORA_SEARCH_VIEW_FIELD_XML_PARAM_DESC"
+				description="COM_AURORA_SEARCH_VIEW_FIELD_DB_PARAM_DESC"
 				default="1"
 			/>
 		</fieldset>
